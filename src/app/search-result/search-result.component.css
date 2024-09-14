@@ -1,0 +1,74 @@
+.wrap{
+    width: 80%;
+    max-width: 50rem;
+    margin: 0 auto 2rem auto;
+    overflow-x: auto; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+    white-space: nowrap; 
+  }
+  
+  table{
+    width: 100%;
+    color:black;
+    border-collapse:collapse;
+    table-layout: auto; /* 依據內容自動調整欄位寬度 */
+    }
+  
+  th{
+    padding: 12px;
+    background-color: #2e7316;
+    color:rgb(255, 255, 255);
+    width:2rem;
+    font-size: 1rem;
+    height:3rem;
+    font-weight: bold;
+  }
+  
+  td{
+    background-color:#ffffff;
+    padding: 12px;
+    height:3rem;
+    text-align:center;
+  }
+  
+  tr{
+    border-bottom: 1px solid #dddddd;
+  }
+
+  
+  .button_container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  button{
+    padding: 5px 8px;
+    width: 50%;
+    margin: 0px 2px;
+    border-radius: 5px;
+    border: 0px;
+  }
+
+  button a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+
+  .change{
+    background-color: #2e7316;
+  }
+
+  .remove{
+    background-color: #ec1a1a;
+  }
+
+  .remove:hover{
+    background-color: rgba(253, 48, 48, 0.7);
+    cursor: pointer;
+  }
+  .change:hover{
+    background-color: rgba(81, 143, 54, 0.7);
+    cursor: pointer;
+  }
+

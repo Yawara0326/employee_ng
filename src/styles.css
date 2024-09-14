@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    /* 設定元素的寬高都會包含內距與邊框，計算更直觀 */
+    box-sizing: border-box; 
+  } 
+
+html {
+    height: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: rgb(253, 242, 225);
+  /* background: radial-gradient(circle at top left, #ffffff, #ffffff); */
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}

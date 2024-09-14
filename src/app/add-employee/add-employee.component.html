@@ -1,0 +1,26 @@
+<div class="backdrop" (click)="onCancelAddEmployee()"></div>
+<dialog open>
+  <h2>新增員工資料</h2>
+  <form (submit)="onSubmit()">
+    <p>
+      <label for="name">姓名</label>
+      <input type="text" id="name" name="name" [(ngModel)]="enteredName"/>
+    </p>
+    <p>
+      <label for="id-number">身分證字號</label>
+      <input type="text" id="id-number" name="id-number" [(ngModel)]="enteredIdNumber"/>
+    </p>
+    <p>
+      <label for="phone-number">電話號碼</label>
+      <input type="text" id="phone-number" name="phone-number" [(ngModel)]="enteredPhoneNumber"/>
+    </p>
+    <p>
+      <label for="email">信箱</label>
+      <input type="email" id="email" name="email" [(ngModel)]="enteredEmail"/>
+    </p>
+    <p class="actions">
+      <button type="button" (click)="onCancelAddEmployee()">Cancel</button>
+      <button type="submit">Create</button>
+    </p>
+  </form>
+</dialog>
