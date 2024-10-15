@@ -1,67 +1,68 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { EmployeeServiceService } from '../employee-service.service';
+import { EmployeeWithId, EmployeeWithoutId } from '../employee.model';
 @Component({
   selector: 'app-search-result',
   templateUrl: './search-result.component.html',
   styleUrls: ['./search-result.component.css']
 })
 export class SearchResultComponent implements OnInit {
- 
-  isAddingTask = false;
 
-  employees = [
-    {
-      id: '1',
-      name: 'Yawara',
-      id_number: 'E123456789',
-      phone_number:'0912345678',
-      email:'123456@gmail.com',
-      image_url:'image.png'
-    },
-    {
-      id: '2',
-      name: 'Jacky',
-      id_number: 'E123434369',
-      phone_number:'0938184455',
-      email:'97754@gmail.com',
-      image_url:''
-    },
-    {
-      id: '3',
-      name: 'noriko',
-      id_number: 'A947584656',
-      phone_number:'0935281666',
-      email:'as5868@yahoo.com.tw',
-      image_url:'image2.png'
-    },
-    {
-      id: '4',
-      name: 'nanako',
-      id_number: 'F999584656',
-      phone_number:'0935281984',
-      email:'nanako7754@gmail.com',
-      image_url:'image3.png'
-    },
-    {
-      id: '5',
-      name: 'amy',
-      id_number: 'S909846563',
-      phone_number:'09352854584',
-      email:'amy98545@gmail.com',
-      image_url:'image4.png'
-    },
-  ]
+  constructor(
+    private http: HttpClient,
+    private employeeService: EmployeeServiceService
+  ) { }
 
-  onAddTask(){
-    this.isAddingTask = true;
+  url = 'http://localhost:8080/Employee';
+  employees: EmployeeWithId[] = [];
+  searchedEmployees:EmployeeWithId[] = [];
+
+  //更新員工資料
+  isUpdatetingEmployee = false;
+  isSearchResult = false;
+  updateEmployeeId!:string;
+  selectedEmployee?:EmployeeWithId;
+
+  onUpdateEmployee(employeeId: string){
+    this.isUpdatetingEmployee=true;
+    this.updateEmployeeId = employeeId;
+    this.selectedEmployee  = this.employees.find((employee) => employee.id == employeeId)
+    if (this.selectedEmployee) {
+      this.employeeService.updateSelectedEmployee(this.selectedEmployee);
+    } else {
+      console.error('找不到該員工');
+    }
   }
 
-  onCancelAddTask(){
-    this.isAddingTask = false;
+  onCancelUpdate(){
+    this.isUpdatetingEmployee = false;
   }
 
-  constructor() { }
+  onSubmitUpdate(employeeData: EmployeeWithId){
+    this.isUpdatetingEmployee = false;
+    this.employeeService.onSubmitUpdate(employeeData);
+  }
+
+  onConfirmDelete(employeeId: string){
+    this.employeeService.onConfirmDelete(employeeId)
+    // this.searchedEmployees = this.searchedEmployees.filter(employees => employees.id !== employeeId);
+  }
 
   ngOnInit(): void {
-  }
+    //載入網頁時取得所有員工資料
+    this.employeeService.getEmployees();
+    // 持續訂閱所有員工資料
+    this.employeeService.currentEmployees.subscribe(currentEmployees => {
+      this.employees = currentEmployees;
+      console.log("所有員工列表",currentEmployees);
+    })
 
+    //訂閱searchResult，一開始沒有查詢動作會回傳null
+    //searchedEmployees=null時就會隱藏搜尋結果的html，只顯示所有員工列表的結果
+    this.employeeService.searchResult.subscribe(employees => {
+      this.searchedEmployees = employees;
+      console.log("搜尋到的員工列表",this.searchedEmployees);
+    })
+  }
 }

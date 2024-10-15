@@ -1,19 +1,27 @@
+.search_result{
+  width: 80%;
+  max-width: 50rem;
+  color:black;
+  font-weight: bold;
+  margin: 0 auto 2rem auto;
+  font-size: 1.5rem;
+  color: #2e7316;
+}
 .wrap{
     width: 80%;
     max-width: 50rem;
     margin: 0 auto 2rem auto;
-    overflow-x: auto; 
+    overflow-x: auto;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
-    white-space: nowrap; 
+    white-space: nowrap;
   }
-  
   table{
     width: 100%;
     color:black;
     border-collapse:collapse;
     table-layout: auto; /* 依據內容自動調整欄位寬度 */
     }
-  
+
   th{
     padding: 12px;
     background-color: #2e7316;
@@ -23,19 +31,19 @@
     height:3rem;
     font-weight: bold;
   }
-  
+
   td{
     background-color:#ffffff;
     padding: 12px;
     height:3rem;
     text-align:center;
   }
-  
+
   tr{
     border-bottom: 1px solid #dddddd;
   }
 
-  
+
   .button_container{
     width: 100%;
     display: flex;
@@ -48,10 +56,6 @@
     margin: 0px 2px;
     border-radius: 5px;
     border: 0px;
-  }
-
-  button a {
-    text-decoration: none;
     color: #ffffff;
   }
 

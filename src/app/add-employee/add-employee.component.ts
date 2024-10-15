@@ -6,8 +6,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./add-employee.component.css']
 })
 export class AddEmployeeComponent implements OnInit {
-  
-  @Output() add = new EventEmitter<{name: string, idNumber: string, phoneNumber: string, Email: string,}>();
+
+  @Output() create = new EventEmitter<{name: string, idNumber: string, phoneNumber: string, email: string,}>();
   @Output() cancel = new EventEmitter<void>();
 
   enteredName='';
@@ -17,13 +17,19 @@ export class AddEmployeeComponent implements OnInit {
 
   constructor() { }
 
-  onCancelAddEmployee(){
-
+  onCancelCreate(){
+    this.cancel.emit();
   }
 
   onSubmit(){
-    
+    this.create.emit({
+      name: this.enteredName,
+      idNumber: this.enteredIdNumber,
+      phoneNumber: this.enteredPhoneNumber,
+      email: this.enteredEmail
+    });
   }
+
 
   ngOnInit(): void {
   }

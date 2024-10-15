@@ -22,6 +22,9 @@ nav ul li{
     width: 100%;
     text-align: center;
     background-color: transparent;
+    text-decoration: none;
+    color: #2e7316;
+    font-weight: 600;
 }
 
 nav ul li:hover{
@@ -29,18 +32,12 @@ nav ul li:hover{
     cursor: pointer;
 }
 
-nav ul li a{
-    text-decoration: none;
-    color: #2e7316;
-    font-weight: 600;
-}
-
 #get_employees, #create_employee{
     border-right: 2px solid rgb(253, 242, 225);
 
 }
 
-/* 
+/*
 nav ul li {
     width: 33%;
     color: #2c974b;

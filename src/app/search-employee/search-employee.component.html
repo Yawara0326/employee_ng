@@ -1,7 +1,7 @@
-<div class="backdrop" (click)="onCancelCreate()"></div>
+<div class="backdrop" (click)="onCancel()"></div>
 <dialog open>
-  <h2>新增員工資料</h2>
-  <form>
+  <h2> 查詢員工資料</h2>
+  <form (submit)="onSubmit()">
     <p>
       <label for="name">姓名</label>
       <input type="text" id="name" name="name" [(ngModel)]="enteredName"/>
@@ -20,7 +20,7 @@
     </p>
   </form>
     <p class="actions">
-      <button type="button" (click)="onCancelCreate()">取消</button>
-      <button type="submit" (click)="onSubmit()">新增</button>
+      <button type="button" (click)="onCancel()">取消</button>
+      <button type="submit" (click)="onSubmit()">查詢</button>
     </p>
 </dialog>

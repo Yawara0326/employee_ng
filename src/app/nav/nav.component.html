@@ -1,7 +1,9 @@
 <nav>
     <ul>
-        <li id="get_employees"><a href="">員工資料列表</a></li>
-        <li id="create_employee"><a href="">新增員工資料</a></li>
-        <li id="get_employee"><a href="">查詢員工資料</a></li>
+        <li id="get_employees" (click)="onGetEmployees()">員工資料列表</li>
+        <li id="create_employee" (click)="onCreateEmployee()">新增員工資料</li>
+        <li id="get_employee" (click)="onSearchEmployee()">查詢員工資料</li>
     </ul>
 </nav>
+<app-add-employee *ngIf="isCreatingEmployee" (cancel)="onCancelCreate()" (create)="onSubmitCreate($event)"></app-add-employee>
+<app-search-employee *ngIf="isSearchingEmployee" (cancel)="onCancelSearch()" (search)="onSubmitSearch($event)"></app-search-employee>

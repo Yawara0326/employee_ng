@@ -1,0 +1,36 @@
+# 必須包含 events 區塊
+events {
+    worker_connections 1024;  # 這是事件的最低配置
+}
+
+# http 區塊內才允許使用 server 指令
+http {
+
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    server {
+        listen $PORT;
+        server_name localhost;
+
+        # 提供前端的 Angular 應用靜態文件
+        location / {
+            root /usr/share/nginx/html;  # Angular 應用的靜態文件目錄
+            try_files $uri $uri/ /index.html;  # 支持 SPA 路由
+        }
+
+        # 代理 /api/ 的請求到 Spring Boot 後端
+        location /api/ {
+            proxy_pass https://employee-management-system-846285466349.asia-east1.run.app/;  # 指向後端 Spring Boot API 的 Cloud Run 服務
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+        }
+    }
+
+    types {
+        application/javascript  js;
+        text/css                css;
+    }
+}
