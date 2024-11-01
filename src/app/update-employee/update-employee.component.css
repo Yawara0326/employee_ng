@@ -78,6 +78,25 @@ button[type="submit"]:active {
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
 }
 
+#upload_btn{
+  margin:0px 5px;
+  width: 20%;
+  background-color: #c7d7b9;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  color: #000000;
+  font-size: small;
+}
+
+#download_btn{
+  width: 20%;
+  background-color: #c7d7b9;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  color: #000000;
+  font-size: small;
+}
+
 @media (min-width: 768px) {
   dialog {
     padding: 2rem;

@@ -3,7 +3,8 @@ export interface EmployeeWithId{
   name: string,
   idNumber: string,
   phoneNumber: string,
-  email: string
+  email: string,
+  imageUrl: string
 }
 
 export interface EmployeeWithoutId{

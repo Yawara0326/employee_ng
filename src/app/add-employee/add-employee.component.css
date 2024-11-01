@@ -44,7 +44,7 @@ input{
 .actions {
   margin: 1rem 0 0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 0.25rem;
 }
 
@@ -74,9 +74,39 @@ button[type="submit"] {
 
 button[type="submit"]:hover,
 button[type="submit"]:active {
-  background-color: #4f9645;
+  background-color: #324230;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
 }
+
+
+input[type="file"]{
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+}
+
+#upload_btn{
+  margin:0px 5px;
+  width: 20%;
+  background-color: #c7d7b9;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  color: #000000;
+  font-size: small;
+}
+
+#download_btn{
+  width: 20%;
+  background-color: #c7d7b9;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  color: #000000;
+  font-size: small;
+}
+
+/* #upload_btn:hover,
+#upload_btn:active {
+  background-color: rgb(215, 240, 215);
+} */
+
 
 @media (min-width: 768px) {
   dialog {
